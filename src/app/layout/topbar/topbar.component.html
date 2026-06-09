@@ -1,0 +1,10 @@
+
+
+
+<div class="w-full flex align-items-center h-full">
+    <div class="ml-auto p-2 mr-3 border-round-3xl border-1 border-blue-300 cursor-pointer"(click)="menu.toggle($event)">
+        <i class="fa-solid fa-user text-blue-300"></i>
+    </div>
+</div>
+<p-menu appendTo="body" class="z-5" #menu [popup]="true" [model]="items"></p-menu>
+

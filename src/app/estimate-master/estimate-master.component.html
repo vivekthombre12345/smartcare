@@ -1,0 +1,81 @@
+<p-toast></p-toast>
+
+
+<div class="estimate-container">
+
+  <!-- LEFT: PRODUCTS -->
+  <div
+    class="product-list"
+    cdkDropList
+    #productList="cdkDropList"
+    [cdkDropListData]="allProducts"
+    [cdkDropListConnectedTo]="['estimateList']"
+  >
+    <h3>Products</h3>
+
+    <div class="product-list-container">
+        <div
+            class="product-card"
+            *ngFor="let product of allProducts"
+            cdkDrag
+            >
+            <img [src]="product.image" />
+            <div class="flex flex-column gap-2">
+                <div class="flex flex-column gap-2">
+                    <strong>{{ product.productName | uppercase }}</strong>
+                    <span>{{ product.brandName | uppercase}}</span>        
+                </div>
+                <span>₹ {{ product.assignedPrice }}</span>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: ESTIMATE -->
+  <div
+    class="estimate-list"
+    cdkDropList
+    id="estimateList"
+    [cdkDropListData]="estimateItems"
+    [cdkDropListConnectedTo]="[productList]"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <h3>Estimate</h3>
+
+    <div
+      class="estimate-row grid "
+      *ngFor="let item of estimateItems let i = index"
+    >
+      <span class="col-5">
+        <div class="flex align-items-center gap-2">
+            <img [src]="item.image" width="50" alt="">
+            <span>{{ item.productName | uppercase }}</span>
+        </div>
+      </span>
+
+      <div class="col-3 flex align-items-center gap-2">
+        <span>{{item.assignedPrice}}</span> x
+        <input
+            type="number"
+            class="w-full outline-none p-2 border-1 border-blue-100"
+            min="1"
+            [(ngModel)]="item.qty"
+            (input)="updateTotal(item)"
+        />
+      </div>
+
+      <span class="col-3 flex align-items-center justify-content-end">
+        <span>₹ {{ item.total }}</span>
+      </span>
+
+      <span class="col-1">
+        <i  (click)="removeItem(i)" class="fa-solid fa-trash text-red-500 cursor-pointer"></i>
+      </span>
+    </div>
+
+    <div class="grand-total mt-auto">
+      <strong>Grand Total: ₹ {{ getGrandTotal() }}</strong>
+    </div>
+  </div>
+
+</div>

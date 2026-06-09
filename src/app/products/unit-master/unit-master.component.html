@@ -1,0 +1,53 @@
+<p-toast></p-toast>
+
+<div class="grid grid-nogutter m-0 gap-2">
+    <div class="col-12 p-2 md:p-3 bg-white border-round-xl shadow-1 flex align-items-center">
+        <span class="text-lg font-bold">
+            Unit Management
+        </span>        
+    </div>
+    <div class="col-12 p-2 md:p-3 bg-white border-round-xl shadow-1">
+       <div class="flex gap-2 align-items-center w-full">
+             <input 
+                pInputText  
+                type="text"
+                placeholder="Enter Unit Name"
+                [(ngModel)]="unitName"
+                class="uppercase-input border-1 border-blue-200 outline-none p-2 border-round-xs" >
+            <p-button [label]="editMode ? 'Update' : 'Create' " (click)="editMode ? updateUnit() : createUnit()"></p-button>
+        </div>                                
+        
+    </div>
+    <div class="col-12 p-2 md:p-3 bg-white border-round-xl shadow-1">
+        <p-table [value]="allUnits" [tableStyle]="{'min-width': '30rem'}" styleClass="p-datatable-gridlines">
+          
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Created On</th>
+                    <th>Unit Name</th>                   
+                    <th>Action</th>
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+                <tr>
+                    <td>{{item?.createdOn | date:'dd-MMM-yyyy hh:mm a'}}</td>
+                    <td>{{item?.unitName | uppercase }}</td>                   
+                    <td>
+                        <div class="flex align-items-center gap-2">
+                            <p-button label="Update" styleClass="p-button-success" (click)="editUnit(item)"></p-button>
+                            <p-button label="Delete" styleClass="p-button-danger" (click)="deleteUnit(item.id)"></p-button>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>          
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                   <td colspan="10" class="text-center font-bold">No Data Available</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+

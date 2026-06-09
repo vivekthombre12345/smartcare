@@ -1,0 +1,44 @@
+<div class="logo-container">  
+  <i id="logo-icon" class="fa-solid fa-v"></i>
+  <span id="logo-full">Vivek Infotech</span>
+</div>
+
+<ul class="sidebar-menu">
+  <li *ngFor="let item of menuList">
+
+    <!-- Parent without children -->
+    <a  *ngIf="!item.children"
+      [routerLink]="item.routeLink"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (click)="onNavigate()"
+      class="menu-item">
+      <i class="{{ item.icon }}"></i>
+      <span class="menu-label">{{ item.label }}</span>
+    </a>
+
+    <!-- Parent with children -->
+    <div *ngIf="item.children"
+         class="menu-item"
+         (click)="toggleMenu(item)">
+      <i class="{{ item.icon }}"></i>
+      <span class="menu-label">{{ item.label }}</span>
+      <i class="fa-solid fa-chevron-right toggle-icon menu-arrow"
+         [class.rotated]="item.isExpanded"></i>
+    </div>
+
+    <!-- Submenu -->
+    <ul *ngIf="item.children && item.isExpanded" class="submenu">
+      <li *ngFor="let child of item.children">
+        <a [routerLink]="child.routeLink"
+           routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+           class="submenu-item">
+          <i class="{{ child.icon }}"></i>
+          <span class="menu-label">{{ child.label }}</span>
+        </a>
+      </li>
+    </ul>
+
+  </li>
+</ul>

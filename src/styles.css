@@ -1,1 +1,86 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+.main-content{
+    background-color: aliceblue;
+}
+
+/* Sidebar */
+.sidebar-container {
+    width: 3%;
+    background-color: #3759b8fd;
+    transition: width 0.1s ease-in-out;
+    overflow: hidden;
+}
+
+.sidebar-container:hover {
+    width: 15%;
+}
+
+/* Logo wrapper */
+.logo-container {
+    height: 60px;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(166, 224, 255);
+}
+
+/* ICON */
+#logo-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* FULL LOGO */
+#logo-full {
+    width: 160px;
+    height: auto;
+    object-fit: contain;
+    display: none;
+    font-weight: 700;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3759b8fd;
+}
+
+.menu-label{
+    display: none;
+}
+
+.menu-arrow{
+    display: none!important;
+}
+
+/* Hover behavior */
+.sidebar-container:hover #logo-icon {
+    display: none;
+}
+
+.sidebar-container:hover #logo-full {
+    display: block;
+}
+
+.sidebar-container:hover .menu-label {
+    display: inline-block;
+}
+
+.sidebar-container:hover .menu-arrow {
+    display: inline-block!important;
+}
+
+input{
+    height: 40px;
+}
+.p-button{
+    padding: 0.55rem 1rem!important;
+}
+
+
