@@ -14,6 +14,8 @@ import { ToastModule } from 'primeng/toast'
 import { HttpClientModule } from '@angular/common/http';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TableModule } from 'primeng/table';
+import { MyEstimatesComponent } from './my-estimates/my-estimates.component';
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
@@ -21,7 +23,7 @@ import { TableModule } from 'primeng/table';
     AppComponent,    
     LayoutComponent,
     EstimateMasterComponent, 
-    LoginComponent,    
+    LoginComponent, MyEstimatesComponent,    
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { TableModule } from 'primeng/table';
     BrowserAnimationsModule,
     FormsModule,
     ToastModule,
+    ButtonModule,
     HttpClientModule,
     DragDropModule,
     TableModule

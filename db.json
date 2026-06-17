@@ -44,8 +44,8 @@
       "productName": "2 TB HARDISK",
       "unitName": "NOS",
       "brandName": "GIONIX",
-      "price": 4300,
-      "assignedPrice": 5300,
+      "price": 8300,
+      "assignedPrice": 10500,
       "image": "assets/images/hardisk.jpg",
       "createdOn": 1769113139609,
       "id": 5
@@ -162,5 +162,6 @@
       "createdOn": 1769114087656,
       "id": 2
     }
-  ]
+  ],
+  "myEstimates":[]
 }

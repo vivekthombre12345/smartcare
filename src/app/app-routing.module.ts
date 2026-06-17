@@ -4,6 +4,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { EstimateMasterComponent } from './estimate-master/estimate-master.component';
 import { LoginComponent } from './login/login.component';
 import { AuthgaurdService } from './services/authgaurd.service';
+import { MyEstimatesComponent } from './my-estimates/my-estimates.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       {path:'dashboard',loadChildren:()=> import('./dashboard/dashboard.module').then(m=> m.DashboardModule) },
       {path:'products',loadChildren:()=> import('./products/products.module').then(m=> m.ProductsModule) },
-      {path:'estimate-master',component:EstimateMasterComponent}
+      {path:'estimate-master',component:EstimateMasterComponent},
+      {path:'my-estimates',component:MyEstimatesComponent}
 
     ]
   },  

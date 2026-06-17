@@ -48,7 +48,7 @@ export class SidebarComponent implements OnInit {
   }
 
    onNavigate() {
-    // jab normal menu click ho
+    // for normal menu click
     this.menuList.forEach(item => {
       if (item.children) {
         item.isExpanded = false;
@@ -83,7 +83,12 @@ export class SidebarComponent implements OnInit {
       label: 'Estimate Master',
       icon: 'fa-solid fa-list',
       routeLink: 'estimate-master'
-    },   
+    }, 
+    {
+      label: 'My Estimates',
+      icon: 'fa-solid fa-users',
+      routeLink: 'my-estimates'
+    }, 
   ];
 
 
