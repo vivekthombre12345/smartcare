@@ -1,8 +1,28 @@
 
-<div>
+<div class="mb-2">
     <span class="text-blue-300 font-bold">My Estimates</span>
 </div>
 
-<p-table  >
+<p-table [value]="myEstimates" styleClass="p-datatable-gridlines">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Sr.No</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Amount</th>
+            <th>Products</th>
+        </tr>
+    </ng-template>
 
+    <ng-template pTemplate="body" let-estimate let-rowIndex="rowIndex">
+        <tr>
+            <td>{{ rowIndex+1 }}</td>
+            <td>{{ estimate.customerName }}</td>
+            <td>{{ estimate.contactNumber }}</td>
+            <td>₹{{ estimate.grandTotal || 0 }}</td>
+            <td>
+                <p-button label="View" (click)="openProducts(estimate.products)"></p-button>
+            </td>
+        </tr>
+    </ng-template>
 </p-table>

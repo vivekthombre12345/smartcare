@@ -1,31 +1,44 @@
 <p-toast></p-toast>
 
+<div class="border-round-xl bg-white shadow-1 p-3 mb-2">
+  <span class="font-bold text-blue-300 inline-block mb-2">Enter Details</span>
+
+  <div class="mb-2 flex align-items-center gap-2">
+    <input type="text" [(ngModel)]="customerName" class="" placeholder="Enter Customer Name">
+    <input type="text" [(ngModel)]="customerContactNumber" class="" placeholder="Enter Contact Number">
+  </div>
+</div>
+
+<div class="border-round-xl bg-white shadow-1 p-3">
+  <span class="font-bold text-blue-300 inline-block mb-2">Add Products</span>
 
 <div class="estimate-container">
 
   <!-- LEFT: PRODUCTS -->
   <div
-    class="product-list"
+    class="product-list bg-white border-1 border-blue-100 p-3 border-round-xl"
     cdkDropList
     #productList="cdkDropList"
     [cdkDropListData]="allProducts"
     [cdkDropListConnectedTo]="['estimateList']"
   >
-    <h3>Products</h3>
+    <div class="flex w-full align-items-center justify-content-center my-3">
+      <span class="font-bold">PRODUCTS</span>
+    </div>
 
     <div class="product-list-container">
         <div
-            class="product-card"
+            class="product-card p-2 border-1 border-blue-50 shadow-1 border-round"
             *ngFor="let product of allProducts"
             cdkDrag
             >
             <img [src]="product.image" />
-            <div class="flex flex-column gap-2">
-                <div class="flex flex-column gap-2">
-                    <strong>{{ product.productName | uppercase }}</strong>
-                    <span>{{ product.brandName | uppercase}}</span>        
+            <div class="flex flex-column gap-2 justify-content-center align-items-center">
+                <div class="flex align-items-center gap-2 text-sm text-bluegray-400">
+                    <span>{{ product.productName | uppercase }}</span>
+                    <span *ngIf="product.brandName">({{ product.brandName | uppercase}})</span>
                 </div>
-                <span>₹ {{ product.assignedPrice }}</span>
+                <span class="text-bluegray-500">₹ {{ product.assignedPrice }}</span>
             </div>
         </div>
     </div>
@@ -33,17 +46,19 @@
 
   <!-- RIGHT: ESTIMATE -->
   <div
-    class="estimate-list"
+    class="estimate-list bg-white border-1 border-blue-100 p-3 border-round-xl"
     cdkDropList
     id="estimateList"
     [cdkDropListData]="estimateItems"
     [cdkDropListConnectedTo]="[productList]"
     (cdkDropListDropped)="drop($event)"
   >
-    <h3>Estimate</h3>
+    <div class="flex w-full align-items-center justify-content-center my-3">
+      <span class="font-bold">ESTIMATE</span>
+    </div>
 
     <div
-      class="estimate-row grid "
+      class="estimate-row grid m-0 "
       *ngFor="let item of estimateItems let i = index"
     >
       <span class="col-5">
@@ -53,15 +68,19 @@
         </div>
       </span>
 
-      <div class="col-3 flex align-items-center gap-2">
-        <span>{{item.assignedPrice}}</span> x
-        <input
-            type="number"
-            class="w-full outline-none p-2 border-1 border-blue-100"
-            min="1"
-            [(ngModel)]="item.qty"
-            (input)="updateTotal(item)"
-        />
+      <div class="col-3 grid grid-nogutter align-items-center">
+        <span class="col-4">{{item.assignedPrice}}</span>
+        <span class="col-2">X</span>
+        <div class="col-6">
+            <input
+                type="number"
+                class="w-full outline-none p-2 border-1 border-blue-100"
+                min="1"
+                [(ngModel)]="item.qty"
+                (input)="updateTotal(item)"
+            />
+        </div>
+      
       </div>
 
       <span class="col-3 flex align-items-center justify-content-end">
@@ -76,6 +95,13 @@
     <div class="grand-total mt-auto">
       <strong>Grand Total: ₹ {{ getGrandTotal() }}</strong>
     </div>
-  </div>
+  </div>  
 
 </div>
+
+<div class="my-3 w-full text-right">
+    <p-button label="Save" (click)="saveEstimate()"></p-button>
+  </div>
+</div>
+
+

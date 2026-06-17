@@ -56,4 +56,14 @@ export class ProductService {
     return this.http.put(url,unitData);
   }
 
+  saveEstimate(payload:any){
+    let url = `${this.url}/myEstimates`
+    return this.http.post(url,payload);
+  }
+
+  getMyEstimates(){
+    let url = `${this.url}/myEstimates`
+    return this.http.get(url);
+  }
+
 }

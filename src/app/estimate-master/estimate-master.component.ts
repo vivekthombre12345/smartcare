@@ -54,6 +54,44 @@ export class EstimateMasterComponent implements OnInit {
     item.qty = 1;
     item.total = item.qty * item.assignedPrice;
   }
+
+  this.estimatePayload = {
+    customerName:this.customerName,
+    contactNumber:this.customerContactNumber,
+    products:this.estimateItems,
+    grandTotal:this.getGrandTotal()
+  }  
+
+}
+
+estimatePayload:any;
+customerName:any;
+customerContactNumber:any;
+
+saveEstimate(){
+  if(!this.customerContactNumber && !this.customerName ){
+     this.messageService.add({
+      severity:'error',
+      summary:'Error',
+      detail:'Enter customer details first.'
+    })
+    return
+  }
+  this.productService.saveEstimate(this.estimatePayload).subscribe((res:any)=>{
+    this.messageService.add({
+      severity:'success',
+      summary:'Success',
+      detail:'Estimate Saved Successfully.'
+    })
+    this.refreshData();
+  })
+}
+
+refreshData(){
+  this.estimateItems = [];
+  this.getProducts();
+  this.customerName=null;
+  this.customerContactNumber = null;
 }
 
 removeItem(index: number) {

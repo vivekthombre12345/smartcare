@@ -4,7 +4,7 @@ body {
     font-family: sans-serif;
 }
 .main-content{
-    background-color: aliceblue;
+    background-color: rgb(245, 252, 255);
 }
 
 /* Sidebar */
@@ -13,6 +13,7 @@ body {
     background-color: #3759b8fd;
     transition: width 0.1s ease-in-out;
     overflow: hidden;
+    position: relative;
 }
 
 .sidebar-container:hover {
@@ -44,11 +45,16 @@ body {
     width: 160px;
     height: auto;
     object-fit: contain;
-    display: none;
     font-weight: 700;
     font-size: 20px;
+    z-index: -1;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #3759b8fd;
+    position: absolute; 
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
 }
 
 .menu-label{
@@ -64,8 +70,11 @@ body {
     display: none;
 }
 
-.sidebar-container:hover #logo-full {
-    display: block;
+.sidebar-container:hover #logo-full {    
+    opacity: 1;
+    z-index: 100;
+    visibility: visible;
+    transition-delay: 0.1s; /* 200ms delay */
 }
 
 .sidebar-container:hover .menu-label {
@@ -78,6 +87,11 @@ body {
 
 input{
     height: 40px;
+    outline: none;
+    border: 1px solid rgb(137, 210, 255);
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 14px;
 }
 .p-button{
     padding: 0.55rem 1rem!important;
