@@ -2,7 +2,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  background-color: #3759b8fd;
+  background-color: #1b5d8dfd;
 }
 
 .menu-item,
@@ -13,7 +13,8 @@
   padding: 16px 16px;
   cursor: pointer;
   text-decoration: none;
-  color: #ffffff;
+  color: #ffffff;  
+  font-size: 12px;
 }
 
 .submenu-item i{
@@ -23,12 +24,12 @@
 
 .menu-item:hover,
 .submenu-item:hover {
-  background-color: #3a79d6;
+  background-color: #1d3b67;
   color: white;
 }
 
 .active {
-  background-color: #1d3a88;
+  background-color: #17213e;  
   color: white;
   font-weight: 600;
   box-shadow: 0px 2px 10px -4px rgb(29, 29, 29);

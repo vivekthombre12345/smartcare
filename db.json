@@ -119,36 +119,6 @@
       "image": "assets/images/cabel.jpg",
       "createdOn": 1769357176826,
       "id": 12
-    },
-    {
-      "productName": "SCREEN",
-      "unitName": "NOS",
-      "brandName": "-",
-      "price": 1500,
-      "assignedPrice": 2200,
-      "image": "",
-      "createdOn": 1769357352641,
-      "id": 13
-    },
-    {
-      "productName": "HDMI",
-      "unitName": "METER",
-      "brandName": "-",
-      "price": 200,
-      "assignedPrice": 250,
-      "image": null,
-      "createdOn": 1769357397133,
-      "id": 14
-    },
-    {
-      "productName": "LAN",
-      "unitName": "NOS",
-      "brandName": "-",
-      "price": 200,
-      "assignedPrice": 250,
-      "image": null,
-      "createdOn": 1769357527019,
-      "id": 15
     }
   ],
   "units": [
@@ -165,9 +135,303 @@
   ],
   "myEstimates": [
     {
-      "customerName": "Vivek Thombre",
-      "contactNumber": "7776008079",
+      "customerName": "New Rates",
+      "contactNumber": "8888888888",
       "products": [
+        {
+          "productName": "CABEL",
+          "unitName": "METER",
+          "brandName": "D-LINK",
+          "price": 10,
+          "assignedPrice": 25,
+          "image": "assets/images/cabel.jpg",
+          "createdOn": 1769357176826,
+          "id": 12,
+          "qty": 90,
+          "total": 2250
+        },
+        {
+          "productName": "SERVICE CHARGE",
+          "unitName": "NOS",
+          "brandName": "-",
+          "price": 500,
+          "assignedPrice": 500,
+          "image": "assets/images/service.jpg",
+          "createdOn": 1769338151290,
+          "id": 11,
+          "qty": 4,
+          "total": 2000
+        },
+        {
+          "productName": "2MP BULLET CAMERA",
+          "unitName": "NOS",
+          "brandName": "HIKVISON",
+          "price": 1000,
+          "assignedPrice": 1440,
+          "image": "assets/images/bullet.webp",
+          "createdOn": 1769270747563,
+          "id": 10,
+          "qty": 2,
+          "total": 2880
+        },
+        {
+          "productName": "2MP DOME CAMERA",
+          "unitName": "NOS",
+          "brandName": "HIKVISION",
+          "price": 910,
+          "assignedPrice": 1330,
+          "image": "assets/images/dome.jpg",
+          "createdOn": 1769270662404,
+          "id": 9,
+          "qty": 2,
+          "total": 2660
+        },
+        {
+          "productName": "PVC ENCLOSER BOX",
+          "unitName": "NOS",
+          "brandName": "-",
+          "price": 18,
+          "assignedPrice": 50,
+          "image": "assets/images/pvc-box.jpg",
+          "createdOn": 1769270473908,
+          "id": 8,
+          "qty": 4,
+          "total": 200
+        },
+        {
+          "productName": "BNC CONNECTOR",
+          "unitName": "NOS",
+          "brandName": "-",
+          "price": 18,
+          "assignedPrice": 50,
+          "image": "assets/images/bnc.webp",
+          "createdOn": 1769270431906,
+          "id": 7,
+          "qty": 8,
+          "total": 400
+        },
+        {
+          "productName": "DC Connector",
+          "unitName": "NOS",
+          "brandName": "-",
+          "price": 8,
+          "assignedPrice": 30,
+          "image": "assets/images/dc.jpg",
+          "createdOn": 1769270397929,
+          "id": 6,
+          "qty": 4,
+          "total": 120
+        },
+        {
+          "productName": "1 TB HARDISK",
+          "unitName": "NOS",
+          "brandName": "GIONIX",
+          "price": 5200,
+          "assignedPrice": 6500,
+          "image": "assets/images/hardisk.jpg",
+          "createdOn": 1769113102515,
+          "id": 4,
+          "qty": 1,
+          "total": 6500
+        },
+        {
+          "productName": "SMPS",
+          "unitName": "NOS",
+          "brandName": "HIKVISION",
+          "price": 590,
+          "assignedPrice": 900,
+          "image": "assets/images/smps.jpeg",
+          "createdOn": 1769113008172,
+          "id": 3,
+          "qty": 1,
+          "total": 900
+        },
+        {
+          "productName": "4 CH DVR",
+          "unitName": "NOS",
+          "brandName": "HIKVISION",
+          "price": 2185,
+          "assignedPrice": 3580,
+          "image": "assets/images/dvr.webp",
+          "createdOn": 1769273250897,
+          "id": 2,
+          "qty": 1,
+          "total": 3580
+        }
+      ],
+      "grandTotal": 21490,
+      "createdOn": 1781691049116,
+      "id": 1
+    },
+    {
+      "customerName": "Sakshi Barkade",
+      "contactNumber": "9999608080",
+      "products": [
+        {
+          "productName": "CABEL",
+          "unitName": "METER",
+          "brandName": "D-LINK",
+          "price": 10,
+          "assignedPrice": 25,
+          "image": "assets/images/cabel.jpg",
+          "createdOn": 1769357176826,
+          "id": 12,
+          "qty": 1,
+          "total": 25
+        },
+        {
+          "productName": "2MP BULLET CAMERA",
+          "unitName": "NOS",
+          "brandName": "HIKVISON",
+          "price": 1000,
+          "assignedPrice": 1440,
+          "image": "assets/images/bullet.webp",
+          "createdOn": 1769270747563,
+          "id": 10,
+          "qty": 1,
+          "total": 1440
+        },
+        {
+          "productName": "DC Connector",
+          "unitName": "NOS",
+          "brandName": "-",
+          "price": 8,
+          "assignedPrice": 30,
+          "image": "assets/images/dc.jpg",
+          "createdOn": 1769270397929,
+          "id": 6,
+          "qty": 1,
+          "total": 30
+        },
+        {
+          "productName": "2MP DOME CAMERA",
+          "unitName": "NOS",
+          "brandName": "HIKVISION",
+          "price": 910,
+          "assignedPrice": 1330,
+          "image": "assets/images/dome.jpg",
+          "createdOn": 1769270662404,
+          "id": 9,
+          "qty": 1,
+          "total": 1330
+        },
+        {
+          "productName": "PVC ENCLOSER BOX",
+          "unitName": "NOS",
+          "brandName": "-",
+          "price": 18,
+          "assignedPrice": 50,
+          "image": "assets/images/pvc-box.jpg",
+          "createdOn": 1769270473908,
+          "id": 8,
+          "qty": 1,
+          "total": 50
+        },
+        {
+          "productName": "BNC CONNECTOR",
+          "unitName": "NOS",
+          "brandName": "-",
+          "price": 18,
+          "assignedPrice": 50,
+          "image": "assets/images/bnc.webp",
+          "createdOn": 1769270431906,
+          "id": 7,
+          "qty": 1,
+          "total": 50
+        },
+        {
+          "productName": "1 TB HARDISK",
+          "unitName": "NOS",
+          "brandName": "GIONIX",
+          "price": 5200,
+          "assignedPrice": 6500,
+          "image": "assets/images/hardisk.jpg",
+          "createdOn": 1769113102515,
+          "id": 4,
+          "qty": 1,
+          "total": 6500
+        },
+        {
+          "productName": "SMPS",
+          "unitName": "NOS",
+          "brandName": "HIKVISION",
+          "price": 590,
+          "assignedPrice": 900,
+          "image": "assets/images/smps.jpeg",
+          "createdOn": 1769113008172,
+          "id": 3,
+          "qty": 1,
+          "total": 900
+        },
+        {
+          "productName": "4 CH DVR",
+          "unitName": "NOS",
+          "brandName": "HIKVISION",
+          "price": 2185,
+          "assignedPrice": 3580,
+          "image": "assets/images/dvr.webp",
+          "createdOn": 1769273250897,
+          "id": 2,
+          "qty": 1,
+          "total": 3580
+        },
+        {
+          "productName": "SERVICE CHARGE",
+          "unitName": "NOS",
+          "brandName": "-",
+          "price": 500,
+          "assignedPrice": 500,
+          "image": "assets/images/service.jpg",
+          "createdOn": 1769338151290,
+          "id": 11,
+          "qty": 1,
+          "total": 500
+        }
+      ],
+      "grandTotal": 14405,
+      "createdOn": 1781768861679,
+      "id": 2
+    },
+    {
+      "customerName": "xyz",
+      "contactNumber": "8787878787",
+      "products": [
+        {
+          "productName": "8 CH DVR",
+          "unitName": "nos",
+          "brandName": "hikvision",
+          "price": 3180,
+          "assignedPrice": 4700,
+          "image": "assets/images/dvr.webp",
+          "createdOn": 1769111409825,
+          "id": 1,
+          "qty": 1,
+          "total": 4700
+        },
+        {
+          "productName": "4 CH DVR",
+          "unitName": "NOS",
+          "brandName": "HIKVISION",
+          "price": 2185,
+          "assignedPrice": 3580,
+          "image": "assets/images/dvr.webp",
+          "createdOn": 1769273250897,
+          "id": 2,
+          "qty": 1,
+          "total": 3580
+        },
+        {
+          "productName": "SMPS",
+          "unitName": "NOS",
+          "brandName": "HIKVISION",
+          "price": 590,
+          "assignedPrice": 900,
+          "image": "assets/images/smps.jpeg",
+          "createdOn": 1769113008172,
+          "id": 3,
+          "qty": 1,
+          "total": 900
+        },
         {
           "productName": "CABEL",
           "unitName": "METER",
@@ -253,6 +517,18 @@
           "total": 30
         },
         {
+          "productName": "2 TB HARDISK",
+          "unitName": "NOS",
+          "brandName": "GIONIX",
+          "price": 8300,
+          "assignedPrice": 10200,
+          "image": "assets/images/hardisk.jpg",
+          "createdOn": 1769113139609,
+          "id": 5,
+          "qty": 1,
+          "total": 10200
+        },
+        {
           "productName": "1 TB HARDISK",
           "unitName": "NOS",
           "brandName": "GIONIX",
@@ -263,34 +539,11 @@
           "id": 4,
           "qty": 1,
           "total": 6500
-        },
-        {
-          "productName": "4 CH DVR",
-          "unitName": "NOS",
-          "brandName": "HIKVISION",
-          "price": 2185,
-          "assignedPrice": 3580,
-          "image": "assets/images/dvr.webp",
-          "createdOn": 1769273250897,
-          "id": 2,
-          "qty": 1,
-          "total": 3580
-        },
-        {
-          "productName": "SMPS",
-          "unitName": "NOS",
-          "brandName": "HIKVISION",
-          "price": 590,
-          "assignedPrice": 900,
-          "image": "assets/images/smps.jpeg",
-          "createdOn": 1769113008172,
-          "id": 3,
-          "qty": 1,
-          "total": 900
         }
       ],
-      "grandTotal": 14405,
-      "id": 1
+      "grandTotal": 29305,
+      "createdOn": 1781769856345,
+      "id": 3
     }
   ]
 }

@@ -1,28 +1,75 @@
+<p-toast></p-toast>
 
-<div class="mb-2">
-    <span class="text-blue-300 font-bold">My Estimates</span>
+
+<div class="bg-white p-2 md:p-3 border-round-xl shadow-1">
+    <div class="mb-3">
+        <span class="text-blue-300 font-light p-3 border-round-md bg-bluegray-500 text-white inline-block">My Estimates</span>
+    </div>
+    <p-table [value]="myEstimates" styleClass="p-datatable-gridlines">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Sr.No</th>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Amount</th>
+                <th>Products</th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-estimate let-rowIndex="rowIndex">
+            <tr>
+                <td>{{ rowIndex+1 }}</td>
+                <td>{{ estimate.createdOn | date:'dd-MMM-YYYY'}}</td>
+                <td>{{ estimate.customerName }}</td>
+                <td>{{ estimate.contactNumber }}</td>
+                <td>₹{{ estimate.grandTotal || 0 }}</td>
+                <td>
+                    <div class="flex align-items-center gap-2">
+                        <p-button label="View" (click)="openProducts(estimate)"></p-button>
+                        <p-button styleClass="p-button-danger" icon="pi pi-trash" (click)="deleteEstimate(estimate.id)"></p-button>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td class="text-center font-bold" colspan="20">No Data</td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>
+    
 
-<p-table [value]="myEstimates" styleClass="p-datatable-gridlines">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Sr.No</th>
-            <th>Name</th>
-            <th>Contact</th>
-            <th>Amount</th>
-            <th>Products</th>
-        </tr>
-    </ng-template>
+<p-dialog header="Product List" (onHide)="onCloseProductList()" [(visible)]="productVisible" [modal]="true" [responsive]="true" [style]="{width: '40vw', minWidth: '30vw'}">
+   <div class="p-2">
+        <div
+              class="estimate-row grid m-0 p-0 "
+              *ngFor="let item of productList let i = index"
+              >
+              <span class="col-5">
+                <div class="flex align-items-center gap-2 text-sm">
+                    <img [src]="item.image" width="50" alt="">
+                    <span>{{ item.productName | uppercase }}</span>
+                </div>
+              </span>
 
-    <ng-template pTemplate="body" let-estimate let-rowIndex="rowIndex">
-        <tr>
-            <td>{{ rowIndex+1 }}</td>
-            <td>{{ estimate.customerName }}</td>
-            <td>{{ estimate.contactNumber }}</td>
-            <td>₹{{ estimate.grandTotal || 0 }}</td>
-            <td>
-                <p-button label="View" (click)="openProducts(estimate.products)"></p-button>
-            </td>
-        </tr>
-    </ng-template>
-</p-table>
+              <div class="col-4 grid grid-nogutter align-items-center text-sm">
+                <span class="col-4">₹ {{item.assignedPrice}}</span>
+                <span class="col-2">X</span>
+                <div class="col-6">
+                    {{item?.qty}}
+                </div>
+              </div>
+
+              <span class="col-2 flex align-items-center justify-content-end text-sm">
+                <span>₹ {{ item.total }}</span>
+              </span>
+              
+
+            </div>
+            <div class="flex align-items-center justify-content-end">
+                <strong>Grand Total: ₹ {{selectedEstimate?.grandTotal || 0}} /-</strong>
+            </div>
+   </div>
+</p-dialog>

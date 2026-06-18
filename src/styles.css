@@ -10,7 +10,7 @@ body {
 /* Sidebar */
 .sidebar-container {
     width: 3%;
-    background-color: #3759b8fd;
+    background-color: #1b5d8dfd;
     transition: width 0.1s ease-in-out;
     overflow: hidden;
     position: relative;
@@ -22,12 +22,18 @@ body {
 
 /* Logo wrapper */
 .logo-container {
-    height: 60px;
-    display: flex;
-    background-color: rgb(255, 255, 255);
+    height: 64px;
+    display: flex;    
     align-items: center;
     justify-content: center;
     border: 1px solid rgb(166, 224, 255);
+    background: linear-gradient(
+        135deg,
+        #e0f7ff 0%,
+        #b3e5fc 50%,
+        #81d4fa 100%
+    );
+    color: #1f305dfd;
 }
 
 /* ICON */
@@ -43,13 +49,14 @@ body {
 /* FULL LOGO */
 #logo-full {
     width: 160px;
+    color: white;
     height: auto;
     object-fit: contain;
     font-weight: 700;
     font-size: 20px;
     z-index: -1;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #3759b8fd;
+    color: #1f305dfd;
     position: absolute; 
 
     opacity: 0;
@@ -88,13 +95,44 @@ body {
 input{
     height: 40px;
     outline: none;
-    border: 1px solid rgb(137, 210, 255);
+    border: 1px solid rgb(151, 192, 255);
     border-radius: 4px;
     padding: 12px;
     font-size: 14px;
 }
 .p-button{
     padding: 0.55rem 1rem!important;
+    font-size: 12px!important;
+    height: 40px;    
+    box-shadow: 0px 2px 5px rgb(180, 180, 180);    
 }
 
+.p-inputtext{
+    font-size: 14px!important;
+    height: 40px;
+}
+
+/* for table style */
+.p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th{
+    background-color: #ecf0f4;
+    background: linear-gradient(180deg,#ecf0f4 0%, #d4d8db 100%);
+    color: #3e5058;
+    padding: 10px;
+    font-size: 14px;
+}
+.p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th:first-child{
+    border-radius: 8px 0px 0px 0px;            
+}
+.p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th:last-child{
+    border-radius: 0px 8px 0px 0px;   
+}
+.p-datatable.p-datatable-gridlines:has(.p-datatable-thead):has(.p-datatable-tbody) .p-datatable-tbody > tr > td{
+    font-weight: 600;
+    padding: 10px;
+    font-size: 14px;    
+}
+
+.p-dialog .p-dialog-header{
+    border-bottom: 1px solid orange!important;            
+}
 

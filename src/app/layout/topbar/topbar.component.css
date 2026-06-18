@@ -1,0 +1,10 @@
+.topbar-label{
+    /* background: linear-gradient(90deg,rgb(155, 205, 255)  0%, rgb(252, 149, 149) 50%, rgb(148, 255, 148) 100%); */
+       background: linear-gradient(
+        135deg,
+        #abe5ff 0%,
+        #b3e5fc 50%,
+        #e0f7ff 100%
+        
+    );
+}

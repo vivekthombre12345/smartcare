@@ -1,107 +1,119 @@
 <p-toast></p-toast>
 
-<div class="border-round-xl bg-white shadow-1 p-3 mb-2">
+<div class="mb-3  text-white flex">
+  <span class="p-3 bg-bluegray-500 border-round-md">Estimate Master</span>
+</div>
+
+<div class="border-round-xl bg-white shadow-1 p-3 mb-3">
   <span class="font-bold text-blue-300 inline-block mb-2">Enter Details</span>
 
   <div class="mb-2 flex align-items-center gap-2">
-    <input type="text" [(ngModel)]="customerName" class="" placeholder="Enter Customer Name">
-    <input type="text" [(ngModel)]="customerContactNumber" class="" placeholder="Enter Contact Number">
+    <input type="text" (input)="makePayload()" [(ngModel)]="customerName" class="" placeholder="Enter Customer Name">
+    <input type="text" (input)="makePayload()" [(ngModel)]="customerContactNumber" class="" placeholder="Enter Contact Number">
   </div>
 </div>
 
-<div class="border-round-xl bg-white shadow-1 p-3">
-  <span class="font-bold text-blue-300 inline-block mb-2">Add Products</span>
+<div class="">    
 
-<div class="estimate-container">
+    <div class="grid m-0 gap-3">
 
-  <!-- LEFT: PRODUCTS -->
-  <div
-    class="product-list bg-white border-1 border-blue-100 p-3 border-round-xl"
-    cdkDropList
-    #productList="cdkDropList"
-    [cdkDropListData]="allProducts"
-    [cdkDropListConnectedTo]="['estimateList']"
-  >
-    <div class="flex w-full align-items-center justify-content-center my-3">
-      <span class="font-bold">PRODUCTS</span>
-    </div>
+      <!-- LEFT: PRODUCTS -->
+      <div
+        class="product-list bg-white shadow-1 border-round-xl col p-3"
+        cdkDropList
+        #productList="cdkDropList"
+        [cdkDropListData]="allProducts"
+        [cdkDropListConnectedTo]="['estimateList']"
+      >
+        <div class="flex w-full align-items-center justify-content-center p-3 border-bottom-1 border-orange-100 text-blue-400">
+          <span class="font-bold">ADD PRODUCTS</span>
+        </div>
 
-    <div class="product-list-container">
-        <div
-            class="product-card p-2 border-1 border-blue-50 shadow-1 border-round"
-            *ngFor="let product of allProducts"
-            cdkDrag
-            >
-            <img [src]="product.image" />
-            <div class="flex flex-column gap-2 justify-content-center align-items-center">
-                <div class="flex align-items-center gap-2 text-sm text-bluegray-400">
-                    <span>{{ product.productName | uppercase }}</span>
-                    <span *ngIf="product.brandName">({{ product.brandName | uppercase}})</span>
+        <div class="product-list-container mt-3">
+            <div
+                class="product-card p-2 border-1 border-gray-100  border-round"
+                *ngFor="let product of allProducts"
+                cdkDrag
+                >
+                <img [src]="product.image" />
+                <div class="flex flex-column gap-2 justify-content-center align-items-center">
+                    <div class="flex align-items-center gap-2 text-sm text-bluegray-400">
+                        <span>{{ product.productName | uppercase }}</span>
+                        <span *ngIf="product.brandName">({{ product.brandName | uppercase}})</span>
+                    </div>
+                    <span class="text-bluegray-500">₹ {{ product.assignedPrice }}</span>
                 </div>
-                <span class="text-bluegray-500">₹ {{ product.assignedPrice }}</span>
             </div>
         </div>
-    </div>
-  </div>
-
-  <!-- RIGHT: ESTIMATE -->
-  <div
-    class="estimate-list bg-white border-1 border-blue-100 p-3 border-round-xl"
-    cdkDropList
-    id="estimateList"
-    [cdkDropListData]="estimateItems"
-    [cdkDropListConnectedTo]="[productList]"
-    (cdkDropListDropped)="drop($event)"
-  >
-    <div class="flex w-full align-items-center justify-content-center my-3">
-      <span class="font-bold">ESTIMATE</span>
-    </div>
-
-    <div
-      class="estimate-row grid m-0 "
-      *ngFor="let item of estimateItems let i = index"
-    >
-      <span class="col-5">
-        <div class="flex align-items-center gap-2">
-            <img [src]="item.image" width="50" alt="">
-            <span>{{ item.productName | uppercase }}</span>
-        </div>
-      </span>
-
-      <div class="col-3 grid grid-nogutter align-items-center">
-        <span class="col-4">{{item.assignedPrice}}</span>
-        <span class="col-2">X</span>
-        <div class="col-6">
-            <input
-                type="number"
-                class="w-full outline-none p-2 border-1 border-blue-100"
-                min="1"
-                [(ngModel)]="item.qty"
-                (input)="updateTotal(item)"
-            />
-        </div>
-      
       </div>
 
-      <span class="col-3 flex align-items-center justify-content-end">
-        <span>₹ {{ item.total }}</span>
-      </span>
+      <!-- RIGHT: ESTIMATE -->
+       <div class="estimate-list bg-white shadow-1 border-round-xl col-4 p-3">
 
-      <span class="col-1">
-        <i  (click)="removeItem(i)" class="fa-solid fa-trash text-red-500 cursor-pointer"></i>
-      </span>
+        <div class="flex w-full align-items-center justify-content-center p-3 border-bottom-1 border-orange-100 text-blue-400">
+          <span class="font-bold">ESTIMATE</span>
+        </div>
+
+        <!-- list -->
+         <div
+            class="h-full w-full relative"
+            cdkDropList 
+            id="estimateList"
+            [cdkDropListData]="estimateItems"
+            [cdkDropListConnectedTo]="[productList]"
+            (cdkDropListDropped)="drop($event)">
+            
+            <div *ngIf="estimateItems.length == 0" class="flex justify-content-center align-items-center text-bluegray-200 absolute w-full h-full">
+              Drag and Drop items here
+            </div>
+
+            <div
+              class="estimate-row grid m-0 p-0 "
+              *ngFor="let item of estimateItems let i = index"
+              >
+              <span class="col-5">
+                <div class="flex align-items-center gap-2 text-sm">
+                    <img [src]="item.image" width="50" alt="">
+                    <span>{{ item.productName | uppercase }}</span>
+                </div>
+              </span>
+
+              <div class="col-4 grid grid-nogutter align-items-center text-sm">
+                <span class="col-4">{{item.assignedPrice}}</span>
+                <span class="col-2">X</span>
+                <div class="col-6">
+                    <input
+                        type="number"
+                        class="w-full outline-none p-2 border-1 border-blue-100"
+                        min="1"
+                        [(ngModel)]="item.qty"
+                        (input)="updateTotal(item)"
+                    />
+                </div>
+              </div>
+
+              <span class="col-2 flex align-items-center justify-content-end text-sm">
+                <span>₹ {{ item.total }}</span>
+              </span>
+
+              <span class="col-1">
+                <i  (click)="removeItem(i)" class="fa-solid fa-trash text-red-500 cursor-pointer"></i>
+              </span>
+
+            </div>
+                  
+          </div>
+      
+
+          <div class="flex w-full justify-content-between my-3">
+            <span>Grand Total: ₹ {{ getGrandTotal() }}</span>
+            <p-button label="Save" (click)="saveEstimate()"></p-button>
+          </div>
+       </div>
+      
     </div>
 
-    <div class="grand-total mt-auto">
-      <strong>Grand Total: ₹ {{ getGrandTotal() }}</strong>
-    </div>
-  </div>  
-
-</div>
-
-<div class="my-3 w-full text-right">
-    <p-button label="Save" (click)="saveEstimate()"></p-button>
-  </div>
+ 
 </div>
 
 

@@ -16,6 +16,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TableModule } from 'primeng/table';
 import { MyEstimatesComponent } from './my-estimates/my-estimates.component';
 import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ButtonModule } from 'primeng/button';
     ButtonModule,
     HttpClientModule,
     DragDropModule,
-    TableModule
+    TableModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

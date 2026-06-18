@@ -13,6 +13,9 @@ export class EstimateMasterComponent implements OnInit {
 
   allProducts: any[] = [];
   estimateItems: any[] = [];
+  estimatePayload:any;
+  customerName:any;
+  customerContactNumber:any;
 
   constructor(
     private productService: ProductService,
@@ -59,14 +62,21 @@ export class EstimateMasterComponent implements OnInit {
     customerName:this.customerName,
     contactNumber:this.customerContactNumber,
     products:this.estimateItems,
-    grandTotal:this.getGrandTotal()
-  }  
+    grandTotal:this.getGrandTotal(),
+    createdOn:new Date().getTime()
+  }
 
 }
 
-estimatePayload:any;
-customerName:any;
-customerContactNumber:any;
+makePayload(){
+   this.estimatePayload = {
+    customerName:this.customerName,
+    contactNumber:this.customerContactNumber,
+    products:this.estimateItems,
+    grandTotal:this.getGrandTotal(),
+    createdOn:new Date().getTime()
+  }
+}
 
 saveEstimate(){
   if(!this.customerContactNumber && !this.customerName ){

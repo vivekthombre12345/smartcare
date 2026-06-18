@@ -1,13 +1,15 @@
 <p-toast></p-toast>
 
 <div class="grid grid-nogutter m-0 gap-2">
-    <div class="col-12 p-2 md:p-3 bg-white border-round-xl shadow-1 flex align-items-center">
-        <span class="text-lg font-bold">
-            Unit Management
-        </span>        
-    </div>
+    
+    
     <div class="col-12 p-2 md:p-3 bg-white border-round-xl shadow-1">
-       <div class="flex gap-2 align-items-center w-full">
+
+    <div class=" flex align-items-center justify-content-between w-full col-12 p-0 mb-3 ">
+        <span class=" font-light p-3 bg-bluegray-500 text-white border-round-md">
+            Unit Management
+        </span> 
+        <div class="flex gap-2 align-items-center">
              <input 
                 pInputText  
                 type="text"
@@ -15,10 +17,10 @@
                 [(ngModel)]="unitName"
                 class="uppercase-input border-1 border-blue-200 outline-none p-2 border-round-xs" >
             <p-button [label]="editMode ? 'Update' : 'Create' " (click)="editMode ? updateUnit() : createUnit()"></p-button>
-        </div>                                
-        
+        </div>                                        
     </div>
-    <div class="col-12 p-2 md:p-3 bg-white border-round-xl shadow-1">
+
+
         <p-table [value]="allUnits" [tableStyle]="{'min-width': '30rem'}" styleClass="p-datatable-gridlines">
           
             <ng-template pTemplate="header">

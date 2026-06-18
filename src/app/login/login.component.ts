@@ -29,7 +29,7 @@ export class LoginComponent {
       // Redirect to dashboard
       this.router.navigate(['/dashboard']);
     } else {
-      this.messageService.add({severity:'error',summary:'Error',detail:'Incorrect Credentials'});
+      this.messageService.add({severity:'error',summary:'Error',detail:'User not found! Please check username and password'});
     }
   }
 }

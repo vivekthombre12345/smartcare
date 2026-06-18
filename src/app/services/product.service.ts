@@ -66,4 +66,8 @@ export class ProductService {
     return this.http.get(url);
   }
 
+  deleteEstimate(id:any){
+    let url = `${this.url}/myEstimates/${id}`
+    return this.http.delete(url);
+  }
 }
